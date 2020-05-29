@@ -77,7 +77,7 @@
 		<guava.version>19.0</guava.version>
 		<camel-spring-boot.version>2.21.0</camel-spring-boot.version>
 		<ff4j.version>1.7.1</ff4j.version>
-		<netty.version>4.1.23.Final</netty.version>
+		<netty.version>4.1.42.Final</netty.version>
         
 		<!-- Maven -->
 		<build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
