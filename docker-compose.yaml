@@ -1,0 +1,30 @@
+version: '3'
+services:
+
+  # -- Datastax Enterprise -- 
+  dse:
+    image: datastax/dse-server:6.7.0
+    command: [ -s -g -k ]
+    ports:
+    - "9042:9042"
+    - "8983:8983"
+    - "8182:8182"
+    environment:
+      DS_LICENSE: accept
+    cap_add:
+    - IPC_LOCK
+    ulimits:
+      memlock: -1
+      
+  # -- Datastax Studio -- 
+  studio:
+    image: datastax/dse-studio:6.7.0
+    ports:
+      - "9091:9091"
+    depends_on:
+      - dse
+    environment:
+      DS_LICENSE: accept
+    volumes:
+      - "./killrvideo-studionotebooks:/var/lib/datastax-studio"
+      

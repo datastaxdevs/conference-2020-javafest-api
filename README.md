@@ -1,2 +1,2 @@
-# javafest-2020
-Source code for the talk on May 30th
+# JavaFest 2020
+Support code for talk Java Fest 2020
