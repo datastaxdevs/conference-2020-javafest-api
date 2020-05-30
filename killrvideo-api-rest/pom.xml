@@ -55,6 +55,10 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${swagger.version}</version>
 		</dependency>
+		<dependency>
+  <groupId>javax.xml.bind</groupId>
+  <artifactId>jaxb-api</artifactId>
+</dependency>
 		
 		<!-- By adding this dependency -->
 		<dependency>

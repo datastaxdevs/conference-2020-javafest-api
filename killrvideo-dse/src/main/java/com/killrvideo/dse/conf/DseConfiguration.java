@@ -29,6 +29,7 @@ import com.killrvideo.dse.utils.LongToTimeStampCodec;
 /**
  * Connectivity to DSE (cassandra, graph, search).
  */
+
 @Configuration
 public class DseConfiguration {
 
@@ -37,21 +38,6 @@ public class DseConfiguration {
     
     @Value("#{'${dse.contactPoints}'.split(',')}")
     public List < String > contactPoints;
-    
-    @Value("${dse.port: 9042}")
-    public int port;
-    
-    @Value("${dse.keyspace: system}")
-    public String keyspace;
-    
-    @Value("${dse.username}")
-    public Optional < String > dseUsername;
-   
-    @Value("${dse.password}")
-    public Optional < String > dsePassword;
-    
-    @Value("${dse.localdc}")
-    public String localDc;
     
     @Bean
     public DseSession dseSession() {
@@ -65,7 +51,8 @@ public class DseConfiguration {
         clusterConfig.withPort(port);
         
         if (dseUsername.isPresent() && dsePassword.isPresent() && dseUsername.get().length() > 0) {
-            AuthProvider cassandraAuthProvider = new DsePlainTextAuthProvider(dseUsername.get(), dsePassword.get());
+            AuthProvider cassandraAuthProvider = 
+                    new DsePlainTextAuthProvider(dseUsername.get(), dsePassword.get());
             clusterConfig.withAuthProvider(cassandraAuthProvider);
             LOGGER.info(" + With username  : {}", dseUsername.get());
         }
@@ -111,6 +98,21 @@ public class DseConfiguration {
             throw new IllegalStateException("", iqe);
         }
     }
+    
+    @Value("${dse.port: 9042}")
+    public int port;
+    
+    @Value("${dse.keyspace: system}")
+    public String keyspace;
+    
+    @Value("${dse.username}")
+    public Optional < String > dseUsername;
+   
+    @Value("${dse.password}")
+    public Optional < String > dsePassword;
+    
+    @Value("${dse.localdc}")
+    public String localDc;
     
     /**
      * Use to create mapper and perform ORM on top of Cassandra tables.

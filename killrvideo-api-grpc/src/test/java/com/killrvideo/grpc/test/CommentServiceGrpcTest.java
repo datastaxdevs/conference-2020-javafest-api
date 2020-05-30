@@ -18,7 +18,7 @@ import killrvideo.comments.CommentsServiceOuterClass.UserComment;
  */
 public class CommentServiceGrpcTest {
     
-	String MY_USER_ID = "2f2f64ee-6a08-4351-8b54-d86f695f4775";
+	String MY_USER_ID = "2863b528-c551-41d4-bb04-7c973e76a759";
 	
     @Test
     public void testListCommentForUser() throws Exception {

@@ -1,6 +1,6 @@
 package com.killrvideo.dse.test;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 
 import com.datastax.driver.core.ConsistencyLevel;
@@ -64,7 +64,7 @@ public abstract class AbstractTest implements SchemaConstants {
      * Test Helpers
      */
     protected void assertReturnedRecordsNumber(int expected, String cqlQuery) {
-        Assert.assertEquals(expected, dseSession.execute(cqlQuery).getAvailableWithoutFetching());
+        Assertions.assertEquals(expected, dseSession.execute(cqlQuery).getAvailableWithoutFetching());
     }
   
     /**
@@ -81,14 +81,14 @@ public abstract class AbstractTest implements SchemaConstants {
      * Test Helpers
      */
     protected void assertTableIsNotEmpty(String keyspace, String tableName) {
-        Assert.assertNotEquals(0, countAll(keyspace, tableName));
+        Assertions.assertNotEquals(0, countAll(keyspace, tableName));
     }
     
     /**
      * Test Helpers
      */
     protected void assertCountItemInTable(int expected, String keyspace, String tableName) {
-        Assert.assertEquals(expected, countAll(keyspace, tableName));
+        Assertions.assertEquals(expected, countAll(keyspace, tableName));
     }
     
     /**
@@ -103,9 +103,9 @@ public abstract class AbstractTest implements SchemaConstants {
      */
     protected void assertTableExist(String keyspace, String tableName) {
         KeyspaceMetadata ks = dseCluster.getMetadata().getKeyspace(keyspace);
-        Assert.assertNotNull(ks);
+        Assertions.assertNotNull(ks);
         TableMetadata table = ks.getTable(tableName);
-        Assert.assertNotNull(table);
+        Assertions.assertNotNull(table);
     }
     
     /**

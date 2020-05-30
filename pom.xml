@@ -82,8 +82,8 @@
 		<!-- Maven -->
 		<build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
 		<cassandra-maven-plugin.version>3.5</cassandra-maven-plugin.version>
-		<maven-compiler-plugin.source>1.8</maven-compiler-plugin.source>
-		<maven-compiler-plugin.target>1.8</maven-compiler-plugin.target>
+		<maven-compiler-plugin.source>11</maven-compiler-plugin.source>
+		<maven-compiler-plugin.target>11</maven-compiler-plugin.target>
 		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
 		<maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
 		<maven-os-plugin.version>1.5.0.Final</maven-os-plugin.version>
@@ -172,10 +172,7 @@
 				<artifactId>commons-collections4</artifactId>
 				<version>${commons-collections.version}</version>
 			</dependency>
-			<!-- NOT ready for grpc1.10 <dependency> <groupId>org.lognet</groupId> 
-				<artifactId>grpc-spring-boot-starter</artifactId> <version>${spring-boot-grpc.version}</version> 
-				</dependency> -->
-
+			
 			<!-- ETCD Service Discovery -->
 			<dependency>
 				<groupId>com.xqbase</groupId>

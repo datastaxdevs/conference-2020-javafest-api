@@ -3,16 +3,16 @@ package com.killrvideo.dse.test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import org.junit.Assert;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import com.datastax.driver.core.ConsistencyLevel;
 import com.datastax.driver.core.utils.UUIDs;
 import com.killrvideo.dse.dao.CommentDseDao;
 import com.killrvideo.dse.dao.dto.QueryCommentByUser;
-import com.killrvideo.dse.dao.dto.QueryCommentByVideo;
-import com.killrvideo.dse.dao.dto.ResultListPage;
 import com.killrvideo.dse.model.Comment;
 
 /** 
@@ -37,13 +37,13 @@ public class CommentDaoTestIT extends AbstractTest {
     }
     
     @Test
-    @DisplayName("Generation de commentaires")
+    @DisplayName("Gen Comments")
     public void genererDesCommentaires() {
         // Given
         UUID randomUserId = UUID.randomUUID();
         System.out.println("Your UserID " + randomUserId );
         QueryCommentByUser query = new QueryCommentByUser(randomUserId);
-        Assert.assertEquals(0, commentDao.findCommentsByUserId(query).getResults().size());
+        Assertions.assertEquals(0, commentDao.findCommentsByUserId(query).getResults().size());
          
         for(int idx =0;idx<5;idx++) {
             Comment comment = new Comment(getListComments().get(idx));
@@ -53,7 +53,18 @@ public class CommentDaoTestIT extends AbstractTest {
             commentDao.insertComment(comment);
         }
     }
+    
+    private List < String > getListComments() {
+      List< String > comments = new ArrayList<>();
+      comments.add("We invite TOP-specialists from the USA, Europe and Ukraine who will present talks, full of practical examples from real-life projectss");
+      comments.add("At the conference we will talk about the use of tools, frameworks and practices.");
+      comments.add("Each participant will get access to his private account with all links to conference activities, i.e. 3 tracks of talks, special rooms to communicate with speakers, online activities from our partners and Q&A sessions.");
+      comments.add("New professional event for Java developers");
+      comments.add("Java Fest online");
+      return comments;
+    }
 
+    /*
     @Test
     @DisplayName("When inserting Comment into empty tables you got 1 record")
     public void testInsertComment() {
@@ -102,17 +113,6 @@ public class CommentDaoTestIT extends AbstractTest {
     	target.setVideoid(UUID.fromString("fd7f1690-2a48-4751-9afb-9073af0c5c30"));
     	target.setUserid(UUID.fromString("805d83ad-2fbc-43e9-a61b-9ebb3dae0950"));
     	commentDao.deleteComment(target);
-    }
-    
-    
-    public List < String > getListComments() {
-      List< String > comments = new ArrayList<>();
-      comments.add("...a 4H du matin, ce sont les seuls qui tiennent la marée");
-      comments.add("Comment reconnais-tu un breton en soirée...");
-      comments.add("Quimper, c'est le sud.");
-      comments.add("T'es Brestois... si t'as déja fini dans le Lagen");
-      comments.add("T'es Brestois... si tu connais les ribines pour éviter la bleuzaille");
-      return comments;
-    }
+    }*/
     
 }

@@ -1,3 +1,9 @@
+# ------------------------------------------------------------------
+# docker system prune
+# docker images prune
+# docker container prune
+# cleanup docker volume rm $(docker volume ls -qf dangling=true)
+# ------------------------------------------------------------------
 version: '3'
 services:
 
