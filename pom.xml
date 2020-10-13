@@ -60,7 +60,7 @@
 		<!-- Test -->
 		<cassandra-unit.version>3.3.0.2</cassandra-unit.version>
 		<cassandra-all.version>3.11.2</cassandra-all.version>
-		<junit4.version>4.12</junit4.version>
+		<junit4.version>4.13.1</junit4.version>
 		<junit-platform.version>1.2.0</junit-platform.version>
 		<junit-jupiter.version>5.2.0</junit-jupiter.version>
 		<cucumber.version>1.2.5</cucumber.version>
