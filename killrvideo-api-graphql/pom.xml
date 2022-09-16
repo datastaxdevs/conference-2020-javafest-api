@@ -21,7 +21,7 @@
 	</parent>
 
 	<properties>
-		<graphql-java.version>9.2</graphql-java.version>
+		<graphql-java.version>17.4</graphql-java.version>
 		<graphql-java-servlet.version>6.1.2</graphql-java-servlet.version>
 		<graphql-java-tools.version>5.2.3</graphql-java-tools.version>
 		<graphql-springboot-starter.version>5.0.1</graphql-springboot-starter.version>
